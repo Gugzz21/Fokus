@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { ActionButton } from "../components/ActionButton";
 import { FokusButton } from "../components/FokusButton";
+import { Timer } from "../components/Timer";
 
 const pomodoro = [
   {
@@ -31,10 +32,11 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <Image source={timerType.image} />
+
       <View style={styles.actions}>
+
         <View style={styles.context}>
           {pomodoro.map(p =>
-
             <ActionButton 
               key={p.id}
               active={timerType.id === p.id}
@@ -44,9 +46,16 @@ export default function Index() {
           )}
 
         </View>
-        <Timer totalSeconds={timerType.initialValue * 60} />
+
+
+        <Timer totalSeconds={timerType.initialValue} />
+
 
         <FokusButton />
+
+
+
+
       </View>
       <View style={styles.footer}>
         <Text style={styles.footerText}>
