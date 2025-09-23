@@ -6,19 +6,19 @@ import { FokusButton } from "../components/FokusButton";
 const pomodoro = [
   {
     id: "focus",
-    initialValue: 25,
+    initialValue: 1500,
     image: require('./foco.png'),
     display: "Foco",
   },
   {
     id: "short",
-    initialValue: 5,
+    initialValue: 300,
     image: require('./descanso_curto.png'),
     display: "Pausa curta",
   },
   {
     id: "long",
-    initialValue: 15,
+    initialValue: 900,
     image: require('./descanso_longo.png'),
     display: "Pausa longa",
   },
@@ -41,22 +41,11 @@ export default function Index() {
               onPress={() => setTimerType(p)}
               display={p.display}
             />
-          // <Pressable 
-          //   key={p.id} 
-          //   style={ timerType.id === p.id ? styles.contextButtonActive : null}
-          //   onPress={() => setTimerType(p)}
-          //   >
-          //   <Text style={styles.contextButtonText}>{p.display}</Text>
-          // </Pressable>
           )}
 
         </View>
-        <Text style={styles.timer}>
-          {/* {timerType.initialValue} */}
-          {new Date(timerType.initialValue * 1000).toLocaleTimeString("pt-BR", { minute: "2-digit", second: "2-digit"
+        <Timer totalSeconds={timerType.initialValue * 60} />
 
-          })}
-          </Text>
         <FokusButton />
       </View>
       <View style={styles.footer}>
